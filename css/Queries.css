@@ -1,0 +1,119 @@
+@media only screen and (max-width:480px){
+    body{
+        font-size: 16px;
+    }
+    section{
+        padding: 30px 0;
+    }
+    
+    .row,.hero-text-box{
+     padding: 0 4%;   
+    }
+    header{
+        background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),url(images/header.jpg);
+    }
+    .col{
+        width: 100%;
+    }
+    
+    .btn-pm:link{
+        padding: 10px 20px;
+        display: block;
+        margin-bottom: 10px;
+        width: 50%;
+    }
+    
+    h1{
+        font-size: 270%;
+        margin-top: 60px;
+    }
+    
+    .portfolio-images li{
+        width: 100%;
+    }
+    
+    .contact-form{
+        width: 100%;
+    }
+    
+    .contact-form input{
+        margin-bottom: 20px;
+    }
+    
+    .box {
+        padding: 5%;
+    }
+    
+    h2{
+    font-size: 150%;
+    }
+    
+    .main-nav{
+        float:left;
+        margin-left: 20%;
+        margin-top:10px;
+        display: none;
+    }
+    
+    .main-nav li{
+        display: block;
+    }
+    
+    .main-nav li a:link{
+        display: block;
+    }
+    
+.mobile-nav{
+        float: right;
+        display: block;
+        margin-top: 10px;
+        
+    }
+    
+.mobile-nav i{
+        cursor: pointer;
+    }
+    
+.main-nav li a:hover,
+.main-nav li a:active
+{
+    border:none;
+}
+    
+.sticky-nav .mobile-nav{
+    color: black;
+}
+    
+.sticky-nav .main-nav li a:hover,
+.sticky-nav .main-nav li a:active
+{
+    border-bottom: none;
+}
+.sticky-nav .main-nav li a:link,
+.sticky-nav .main-nav li a:visited
+{
+    border-bottom: none;
+}
+
+.sticky-nav .mobile-nav li a{
+    color: #555;
+    padding: 10px 0;
+    transition: border-bottom 0.4s;
+}
+    
+.sticky-nav .main-nav{
+    margin-bottom: 0px;
+}
+    
+    #contactus{
+        display: inline-block !important;
+        margin-top: 10px;
+    }
+    
+    #call-me{
+        border: none;
+    margin-left: 5px;
+    display: inline;
+    }
+    
+}
