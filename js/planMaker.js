@@ -2,6 +2,19 @@
 let animationSpeed = 1000;
 var adjustmentFactor = 200;
 
+let imageportFolioMapping=
+{
+    "HOTEL":[...Array(25).keys()],
+    "Jalgaon":[...Array(29).keys()],
+    "JalgaonBunglow":[...Array(10).keys()],
+    "Kasarabungalow":[...Array(33).keys()],
+    "Valivali":[...Array(8).keys()],
+    "Wada":[...Array(5).keys()],
+    "wadaBunglow":[...Array(6).keys()],
+    "Ulhasnagar":[...Array(4).keys()]
+}
+
+
 $('#home').on("click",function(){
     
    $('.portfolioDetails').css('transform', 'scale(0,0)');
@@ -119,25 +132,18 @@ $('#more').on("click",function(){
 
 
 function getPortfolioDetails(projectName,projectFolder){
-   
-   var projectFolder = 'css/img/'+projectFolder;
-   
-    var projectFullName = "Project Name: "+projectName;
+   var projectFullName = "Project Name: "+projectName;
     $('#portfolioDetails').empty();
-    $.ajax({
-    url : projectFolder,
-    success: function (data) {
-        
         portfolioDetails = '<div class="project1portfolio-gallery">'+'<h2 class="project-header">'+projectFullName+'</h2>'
         + '<ul class="porfolio">';
         var childs = '';
-        
-        $(data).find("a").attr("href", function (i, val) {
-            if( val.match(/\.(jpe?g|png|gif)$/) ) {
-                childs+='<li class="portfolio-list">'+'<img src='+val+'>'+'</li>'
-            } 
-        });
-        
+    var images = imageportFolioMapping[projectFolder];
+    console.log(images);
+    for(var i=1;i<images.length;i++){
+            var imagePath = 'css/img/'+projectFolder+'/'+i+'.jpg';
+                childs+='<li class="portfolio-list">'+'<img src='+imagePath+'>'+'</li>'
+            }
+    
         childs+='</ul>';
         portfolioDetails+=childs;
         
@@ -145,6 +151,4 @@ function getPortfolioDetails(projectName,projectFolder){
         $('#portfolioDetails').css('transform', 'scale(1,1)');
         $('#portfolioDetails').addClass('project-details-opened');
         console.log(portfolioDetails);
-    }
-});
 }
