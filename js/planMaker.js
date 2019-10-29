@@ -119,7 +119,9 @@ $('#more').on("click",function(){
 
 
 function getPortfolioDetails(projectName,projectFolder){
+   //
     var projectFolder = 'css/img/'+projectFolder;
+    var projectFolder = 'https://github.com/planmaker/planmaker/blob/master/css/img/HOTEL/09.jpg';
     var projectFullName = "Project Name: "+projectName;
     $('#portfolioDetails').empty();
     $.ajax({
