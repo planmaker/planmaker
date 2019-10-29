@@ -116,4 +116,14 @@
     display: inline;
     }
     
+    li.portfolio-list {
+    display: inline-block;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+ 
+    .project-header{
+        display: none;
+    }
 }
