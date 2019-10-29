@@ -123,7 +123,7 @@ input[type=submit]{
 
   
 .row{
-   max-width: 1140px;
+   /*max-width: 1140px;*/
     margin: 0 auto;
 }
 
@@ -354,3 +354,56 @@ margin-top: 0px;
 
 
 
+.projectportfolio{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    transform: scale(0,1);
+    transition: transform  linear 0.3s;
+}
+
+li.portfolio-list {
+    display: inline-block;
+    width: 24%;
+    top: 0;
+    left: 0;
+}
+
+li.portfolio-list img {
+    width: 100%;
+    transform: scale(1);
+    transition: transform 0.3s,opacity 0.5s;
+    padding: 10px;
+}
+
+li.portfolio-list img:hover {
+    transform: scale(1.15);
+    opacity: 1;
+    z-index: 10;
+}
+
+
+.wada-detail:target{
+    display: block;
+}
+
+.project-header{
+    color: #e67e22;
+    text-align: left;
+    font-size: 170%;
+    font-weight: bold;
+    text-transform:capitalize;
+}
+
+.project-header:after{
+    display: none;
+    
+}
+
+li{
+    cursor: pointer;
+}

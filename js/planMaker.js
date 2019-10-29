@@ -4,6 +4,9 @@ var adjustmentFactor = 200;
 
 $('#home').on("click",function(){
     
+   $('.portfolioDetails').css('transform', 'scale(0,0)');
+   $('.projectportfolio').removeClass('project-details-opened');
+
     if(!$('.mobile-nav').is(":visible")){
         adjustmentFactor = 0;
     }
@@ -14,7 +17,10 @@ $('#home').on("click",function(){
 });
 
 $('#hiw').on("click",function(){
-    
+   $('.projectportfolio').css('transform', 'scale(0,0)');
+   $('.projectportfolio').removeClass('project-details-opened');
+
+
     if(!$('.mobile-nav').is(":visible")){
         adjustmentFactor = 0;
     }
@@ -26,6 +32,10 @@ $('#hiw').on("click",function(){
 
 $('#portfolio').on("click",function(){
     
+  $('.projectportfolio').css('transform', 'scale(0,0)');
+  $('.projectportfolio').removeClass('project-details-opened');
+
+    
     if(!$('.mobile-nav').is(":visible")){
         adjustmentFactor = 40;
     }
@@ -35,6 +45,10 @@ $('#portfolio').on("click",function(){
 });
 
 $('#contactus').on("click",function(){
+    
+$('.projectportfolio').css('transform', 'scale(0,0)');
+  $('.projectportfolio').removeClass('project-details-opened');
+
     
     if(!$('.mobile-nav').is(":visible")){
         adjustmentFactor = 0;
@@ -46,6 +60,11 @@ $('#contactus').on("click",function(){
 });
 
 $('.mobile-nav').on("click",function(){
+    
+$('.projectportfolio').css('transform', 'scale(0,0)');
+$('.projectportfolio').removeClass('project-details-opened');
+
+
    $('.main-nav').animate({
        height:'toggle'
    });
@@ -66,11 +85,14 @@ function myFunction() {
   if (window.pageYOffset > sticky) {
     header.classList.add("sticky-nav");
   } else {
-    header.classList.remove("sticky-nav");
+    if(!$('.projectportfolio').hasClass('project-details-opened')){
+            header.classList.remove("sticky-nav");
+    }
   }
 }
 
-id="intrested"
+var portfolioElement = document.getElementsByClassName('projectportfolio');
+portfolioElement.onscroll = function(){myFunction()}
 
 $('#intrested').on("click",function(){
     
@@ -95,3 +117,32 @@ $('#more').on("click",function(){
 });
 
 
+
+function getPortfolioDetails(projectName,projectFolder){
+    var projectFolder = 'css/img/'+projectFolder;
+    var projectFullName = "Project Name: "+projectName;
+    $('#portfolioDetails').empty();
+    $.ajax({
+    url : projectFolder,
+    success: function (data) {
+        
+        portfolioDetails = '<div class="project1portfolio-gallery">'+'<h2 class="project-header">'+projectFullName+'</h2>'
+        + '<ul class="porfolio">';
+        var childs = '';
+        
+        $(data).find("a").attr("href", function (i, val) {
+            if( val.match(/\.(jpe?g|png|gif)$/) ) {
+                childs+='<li class="portfolio-list">'+'<img src='+val+'>'+'</li>'
+            } 
+        });
+        
+        childs+='</ul>';
+        portfolioDetails+=childs;
+        
+        $('#portfolioDetails').append(portfolioDetails);
+        $('#portfolioDetails').css('transform', 'scale(1,1)');
+        $('#portfolioDetails').addClass('project-details-opened');
+        console.log(portfolioDetails);
+    }
+});
+}
